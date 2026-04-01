@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web2 - RabbitMQ Chat</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <style>
+        body { font-family: Arial; margin: 2em; }
+        #messages { border: 1px solid #ccc; height: 200px; overflow-y: scroll; margin-bottom: 1em; padding: 1em; }
+    </style>
+</head>
+<body>
+    <h2>Web2 - RabbitMQ Chat</h2>
+    <div id="messages"></div>
+    <input id="msg" type="text" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+    <script>
+        const client = mqtt.connect('ws://localhost:15675/ws', { clientId: 'web2_' + Math.random(), keepalive: 30 });
+        client.on('connect', () => {
+            client.subscribe('chat', (err) => {
+                if (err) console.error('Subscribe error', err);
+            });
+        });
+        client.on('reconnect', () => console.log('Reconnecting...'));
+        client.on('error', (err) => console.error('MQTT error', err));
+        client.on('message', (topic, payload) => {
+            document.getElementById('messages').innerHTML += '<div>' + payload.toString() + '</div>';
+        });
+
+        function sendMessage() {
+            const text = document.getElementById('msg').value;
+            if (text) {
+                client.publish('chat', text);
+                document.getElementById('msg').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

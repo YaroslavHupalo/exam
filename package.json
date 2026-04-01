@@ -1,0 +1,12 @@
+{
+  "name": "exam-rabbitmq-chat",
+  "version": "1.0.0",
+  "description": "Event-Driven architecture demo with RabbitMQ and web clients",
+  "main": "index.js",
+  "scripts": {
+    "start:docker": "docker-compose up -d",
+    "stop:docker": "docker-compose down"
+  },
+  "author": "",
+  "license": "ISC"
+}

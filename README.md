@@ -2,443 +2,66 @@
 
 > Final exam for checking student knowledge and practical skills
 
-## Test 1:
 
-> Реалізовати породжуючий патерн factory, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
+## Test 22: Event-Driven Architecture with RabbitMQ
 
-### Directory Structure
+### Завдання
+Продемонструвати розуміння Event-Driven архітектури. Налаштувати базову конфігурацію сервісу RabbitMQ, розгорнути два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонструвати крос-протокольну взаємодію між браузерними клієнтами та Postman, використовуючи Typescript.
 
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── factory
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
+### Структура проекту
 
 ```
-
-## Test 2:
-
-> Реалізовати породжуючий патерн factory-method, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── factory-method
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 3:
-
-> Реалізовати породжуючий патерн builder, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── builder
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 4:
-
-> Реалізовати породжуючий патерн singleton, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── singleton
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 5:
-
-> Реалізовати структурний патерн adapter, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── adapter
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 6:
-
-> Реалізовати структурний патерн facade, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── facade
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 7:
-
-> Реалізовати структурний патерн decorator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── decorator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 8:
-
-> Реалізовати поведінковий патерн strategy, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── strategy
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
+├── src
+│   ├── web1
+│   │   └── index.html
+│   ├── web2
+│   │   └── index.html
+├── rabbitmq.conf
+├── docker-compose.yml
+├── .editorconfig
+├── .gitignore
+├── package.json
+├── README.md
 ```
 
-## Test 9:
+### Покрокова інструкція запуску та тестування
 
-> Реалізовати поведінковий патерн observer, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
+1. **Встановіть Docker** (якщо ще не встановлено):
+   - [Завантажити Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-### Directory Structure
+2. **Запустіть RabbitMQ через Docker**:
+   - Відкрийте термінал у корені проекту (де знаходиться файл `docker-compose.yml`).
+   - Виконайте команду:
+     ```
+     npm run start:docker
+     ```
+   - Переконайтесь, що RabbitMQ доступний на http://localhost:15672 (логін: user, пароль: password).
 
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── observer
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
+3. **Запустіть локальний сервер для web1 та web2**:
+   - Відкрийте папки `src/web1` і `src/web2` у VS Code або іншому редакторі.
+   - Запустіть обидва файли `index.html` через Live Server або інший локальний сервер (наприклад, розширення Live Server для VS Code).
 
-```
+4. **Тестування обміну повідомленнями**:
+   - Відкрийте обидва клієнти у різних вкладках браузера.
+   - Надішліть повідомлення з одного клієнта — воно має зʼявитися у обох вікнах.
 
-## Test 10:
+5. **Тестування через Postman**:
+   - Відкрийте Postman.
+   - Створіть новий WebSocket-запит до `ws://localhost:15675/ws`.
+   - Надішліть повідомлення у топік `chat` (див. вкладку "Messages" у Postman).
+   - Перевірте, що повідомлення зʼявляється у web1 та web2.
 
-> Реалізовати поведінковий патерн Iterator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
+6. **Зупинка RabbitMQ**:
+   - У терміналі виконайте:
+     ```
+     npm run stop:docker
+     ```
 
-### Directory Structure
+### Примітки
+- Для роботи WebSocket потрібен плагін rabbitmq_web_mqtt (вже увімкнено у docker-compose).
+- Конфігурація RabbitMQ у файлі `rabbitmq.conf`.
+- Якщо порт 15675 зайнятий, змініть його у конфігурації та у клієнтах.
 
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Iterator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 11:
-
-> Реалізовати поведінковий патерн Command, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Command
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 12:
-
-> Реалізовати поведінковий патерн Mediator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Mediator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 13:
-
-> Реалізовати поведінковий патерн State, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── State
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-
-## Test 14:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Single Responsibility Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── SRP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 15:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Open Close Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── OCP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 15:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Liskov Substitution Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── LSP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 16:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Interface Segregation Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── ISP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 17:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Dependency Inversion Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── DIP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 18:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокер Mosquitto, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <mqtt>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 19:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокер EMQX, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <mqtt>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-
-## Test 20:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокера HiveMQ, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <mqtt>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-
-## Test 21:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу  Kafka, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <mqtt>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
 ## Test 22:
 
 ### Directory Structure
